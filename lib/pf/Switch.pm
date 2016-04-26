@@ -3221,6 +3221,18 @@ sub setSession {
     return $session_id;
 }
 
+=head2
+
+Return the RelayAgentInfoOptRemoteIdSub to match with switch mac in dhcp option 82.
+In this case this is not supported on this switch
+
+=cut
+
+sub getRelayAgentInfoOptRemoteIdSub {
+    my($self) =@_;
+    return $FALSE;
+}
+
 =back
 
 =head1 AUTHOR
