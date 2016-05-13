@@ -140,6 +140,8 @@ our (
     %ConfigAdminRoles,
 #portal_modules.conf
     %ConfigPortalModules,
+#Switches Group
+    @ConfigSwitchesGroup,
 );
 
 BEGIN {
@@ -193,6 +195,7 @@ BEGIN {
         %ConfigBillingTiers
         %ConfigAdminRoles
         %ConfigPortalModules
+        @ConfigSwitchesGroup
     );
 }
 
@@ -264,6 +267,8 @@ tie %ConfigBillingTiers, 'pfconfig::cached_hash', 'config::BillingTiers';
 tie %ConfigAdminRoles, 'pfconfig::cached_hash', 'config::AdminRoles';
 
 tie %ConfigPortalModules, 'pfconfig::cached_hash', 'config::PortalModules';
+
+tie @ConfigSwitchesGroup, 'pfconfig::cached_array', 'resource::switches_group';
 
 use pf::util::apache qw(url_parser);
 
